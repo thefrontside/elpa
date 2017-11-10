@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+- '8'
+cache:
+  yarn: true
+script:
+- yarn test
+deploy:
+  provider: heroku
+  app: fs-elpa
+  api_key:
+    secure: nLq9Wpby2zYiTR9C6cmnKZkeJCOoXqf0CO4aBKHba+KjUW7XiTcIuDtbLl8TrC9gu/rAz34O+jgCGAzRz+KGFdHEJdCr+H3Vw8uJass6xlWCdekEoiOfHDMDZqTXfLksd+0xUL9bw0ruqR88aLIFwA7BXhrqC1TziC81UJSNZqu7rM3YAt3t/q0X7Rp//6i7sdwkKnKt/GlRlG+EynNUe0KLZDj3lLEVaYrdLa1NE6clRjbqCiIFFX98ojGXSh35dztD32Ewmb8NOVrO4nmBAqPmjuKLN+uGdI6wpaRIBOiaYf3EFRlA/zn326TNIkvOSQTrZtonwkJi2M+RyROFoKn41ki5uQKZOZ6bxw8kgcieGZYFqOiBmXpFX88rtYwmr5UEF4XxTEDTAcpFNzrWWHhiL1r7swr+hk4gzeXgBVjeFeBdi5LgLnrYuKTa1u5PQ8NcvI6hjoHPB8iPassFdXP/viFOBQ5Y6AGP6GeMF6kV4QUE+rh13bizNcb24JQlNwuKQ8wfDnwcpV2XlSXu/MGQnj4rgT9JCtsb0NKcCj/MhyI7uNNt/ttrhkJNG5Se3pqfJW6dePgEa7QE6KFiY0YLCmheW7V0TGzD7MXdvF6GE9Ag1yfKxmc3LOllPdg1A1+S8MEt1qqEq+6o83a6dC1FsL0kkLD6ciglFwyVsHw=
+  on:
+    branch: master
