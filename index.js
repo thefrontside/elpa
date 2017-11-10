@@ -3,12 +3,22 @@ const s3Proxy = require('s3-proxy');
 
 const app = express();
 
-const proxy = s3Proxy({
+app.use('/', s3Proxy({
   bucket: 'elpa.frontside.io',
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   overrideCacheControl: 'max-age=100000'
+}));
+
+const server = new Promise((resolve, reject) => {
+  app.listen(process.env.PORT, (err) => {
+    if (err) {
+      reject(err);
+    } else {
+      console.log('listening on port 3000');
+      resolve();
+    }
+  });
 });
 
-app.use('/', proxy);
-app.listen(3000);
+module.exports = server;
